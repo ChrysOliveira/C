@@ -196,21 +196,22 @@ int buscaNumero()
     printf("Digite o numero que deseja buscar:\n");
     int numeroDesejado = 0;
     scanf("%d", &numeroDesejado);
+    gets();
 
     for (int i = 0; i < numeros.tamanhoDoArray; i++)
     {
         if (numeros.array[i] == numeroDesejado)
-            numeroDesejado = numeros.array[i];
+            return numeroDesejado;
     }
 
-    return numeroDesejado;
+    return -1;
 }
 
 int buscaNome()
 {
     printf("Digite o nome que deseja buscar:\n");
     char nomeDesejado[50];
-    scanf("%s", &nomeDesejado);
+    gets(nomeDesejado);
 
     int encontrou = 0;
 
@@ -237,14 +238,14 @@ int localizaPosicaoNumero(int valor)
             break;
         }
     }
-    return numeroDaPosicao;
+    return numeroDaPosicao + 1;
 }
 
 void exibeResultadoNumero(int resultado)
 {
     if (resultado)
     {
-        printf("O numero esta na lista na posicao:%d\n", localizaPosicaoNumero(resultado));
+        printf("O numero esta na lista na posicao:%d\n", resultado);
     }
 }
 
