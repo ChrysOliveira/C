@@ -174,8 +174,9 @@ void exibirNumeros()
     printf("Lista de numeros:\n");
     for (int i = 0; i < numeros.tamanhoDoArray; i++)
     {
-        printf("%d - ", numeros.array[i]);
+        printf("%d ", numeros.array[i]);
     }
+    printf("\n");
     printf("\n");
 }
 
@@ -184,8 +185,9 @@ void exibirNomes()
     printf("Lista de nomes:\n");
     for (int i = 0; i < nomes.tamanhoDoArray - 1; i++)
     {
-        printf("%s - ", nomes.matriz[i]);
+        printf("%s ", nomes.matriz[i]);
     }
+    printf("\n");
     printf("\n");
 }
 
@@ -242,7 +244,7 @@ void exibeResultadoNumero(int resultado)
 {
     if (resultado)
     {
-        printf("O numero esta na lista na posicao:%d", localizaPosicaoNumero(resultado));
+        printf("O numero esta na lista na posicao:%d\n", localizaPosicaoNumero(resultado));
     }
 }
 
