@@ -285,7 +285,6 @@ void menu()
         case 2:
 
             organizaNumCrescente();
-            printf("Tamanho array de nomes: %d", nomes.tamanhoDoArray);
             organizaNomeCrescente();
             break;
         case 3:
