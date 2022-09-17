@@ -223,7 +223,7 @@ int buscaNome()
         }
     }
 
-    return encontrou;
+    return encontrou + 1;
 }
 
 int localizaPosicaoNumero(int valor)
