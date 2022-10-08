@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
-#define TAMANHO_LISTA 10
+#define TAMANHO_LISTA 3
 
 struct pessoa
 {
