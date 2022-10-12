@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 typedef struct equacaoseggrau EquacSeg;
 struct equacaoseggrau
@@ -7,10 +8,25 @@ struct equacaoseggrau
     int a, b, c;
 };
 
-void calcularEquacaoSegundoGrau();
-
-void calcularEquacaoSegundoGrau()
+double calculaDelta(EquacSeg *equacseg)
 {
+    double delta = pow((equacseg->b * -1), 2) - (4 * equacseg->a * equacseg->b);
+    return delta;
+}
+
+void calcularEquacaoSegundoGrau(EquacSeg *equacseg)
+{
+    printf("Digite o valor do a b c na sequencia:\n");
+    printf("a:\n");
+    scanf("%d", &equacseg->a);
+    printf("b:\n");
+    scanf("%d", &equacseg->b);
+    printf("c:\n");
+    scanf("%d", &equacseg->c);
+
+    double delta = calculaDelta(equacseg);
+
+    // parei aqui fazendo a segundo grau
 }
 
 int main()
@@ -27,7 +43,7 @@ int main()
 
         if (opcao == 1)
         {
-            calcularEquacaoSegundoGrau();
+            calcularEquacaoSegundoGrau(&segundoGrau);
         }
         else if (opcao == 2)
         {
