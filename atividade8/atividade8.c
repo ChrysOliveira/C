@@ -5,7 +5,7 @@
 typedef struct equacaoseggrau EquacSeg;
 struct equacaoseggrau
 {
-    double a, b, c;
+    float a, b, c;
 };
 
 typedef struct triHeron triHeron;
@@ -22,34 +22,35 @@ struct circulo
     double raio;
 };
 
-double calculaDelta(EquacSeg *equacseg)
-{
-    double delta = (pow(equacseg->b, 2) - (4 * equacseg->a * equacseg->b));
-    return delta;
-}
-
 void resultadoSegGrau(double x1, double x2)
 {
     printf("O resultado x' eh: %lf \n", x1);
-    printf("O resultado x\" eh: %lf \n", x2);
+    printf("O resultado x'' eh: %lf \n", x2);
 }
 
 void calcularEquacaoSegundoGrau(EquacSeg *equacseg)
 {
     printf("Digite o valor do a b c na sequencia:\n");
-    printf("a:\n");
-    scanf("%lf", &equacseg->a);
-    printf("b:\n");
-    scanf("%lf", &equacseg->b);
-    printf("c:\n");
-    scanf("%lf", &equacseg->c);
 
-    double delta = calculaDelta(equacseg);
+    printf("a:\n");
+    scanf("%f", &equacseg->a);
+    gets();
+
+    printf("b:\n");
+    scanf("%f", &equacseg->b);
+    gets();
+
+    printf("c:\n");
+    scanf("%f", &equacseg->c);
+    gets();
+
+    double delta = pow(equacseg->b, 2) - (4 * equacseg->a * equacseg->c);
 
     double x1, x2;
 
-    x1 = ((equacseg->b * -1) + sqrt(delta)) / 2 * equacseg->a;
-    x1 = ((equacseg->b * -1) - sqrt(delta)) / 2 * equacseg->a;
+    x1 = (equacseg->b * -1) + sqrt(abs(delta)) / (2 * equacseg->a);
+    x2 = (equacseg->b * -1) - sqrt(abs(delta)) / (2 * equacseg->a);
+
     system("clear");
     resultadoSegGrau(x1, x2);
 }
