@@ -1,6 +1,9 @@
-#include "iostream"
-#include "cstdlib"
-using namespace std;
+// #include "iostream"
+// #include "cstdlib"
+#include <stdio.h>
+#include <stdlib.h>
+
+// using namespace std;
 typedef struct me cad;
 int cont = 0;
 struct me
@@ -33,25 +36,28 @@ void alocar()
 void exibir()
 {
     cad *temp;
-    temp =
-        primeiroNO;
+    temp = primeiroNO;
+
     while (temp != NULL)
     {
-        cout << temp->pos << endl;
+        // cout << temp->pos << endl;
+        printf("%d\n", temp->pos);
         temp = temp->liga;
     }
 }
 void destruir()
 {
     cad *temp;
-    temp =
-        primeiroNO;
+    temp = primeiroNO;
+    cad *aux;
+
     while (temp->liga != NULL)
     {
+        aux = temp->liga;
         free(temp);
-        temp = temp->liga;
+        temp = aux;
     }
-    free(primeiroNO);
+
     free(ultimoNo);
 }
 int main()
@@ -62,4 +68,6 @@ int main()
     exibir();
 
     destruir();
+
+    return 0;
 }
