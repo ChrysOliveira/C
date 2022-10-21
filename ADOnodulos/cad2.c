@@ -1,55 +1,53 @@
-// #include "iostream"
-// #include "cstdlib"
+
 #include <stdio.h>
 #include <stdlib.h>
 
-// using namespace std;
-typedef struct me cad;
+typedef struct me cad2;
 int cont = 0;
 struct me
 {
     int pos;
-    cad *liga;
+    char nome[1][30];
+    cad2 *liga;
 };
-cad *ultimoNo;
-cad *primeiroNO;
+cad2 *ultimoNo;
+cad2 *primeiroNO;
 void alocar()
 {
     cont++;
-    cad *newcad = (cad *)malloc(sizeof(cad));
+    cad2 *newcad2 = (cad2 *)malloc(sizeof(cad2));
     if (cont == 1)
     {
-        newcad->liga = NULL;
-        newcad->pos = cont;
-        primeiroNO = newcad;
-        ultimoNo = newcad;
+        newcad2->liga = NULL;
+        newcad2->pos = cont;
+        primeiroNO = newcad2;
+        ultimoNo = newcad2;
     }
     else
     {
-        ultimoNo->liga = newcad;
-        newcad->liga = NULL;
-        newcad->pos = cont;
+        ultimoNo->liga = newcad2;
+        newcad2->liga = NULL;
+        newcad2->pos = cont;
     }
-    ultimoNo = newcad;
+    ultimoNo = newcad2;
 }
 
 void exibir()
 {
-    cad *temp;
+    cad2 *temp;
     temp = primeiroNO;
 
     while (temp != NULL)
     {
-        // cout << temp->pos << endl;
         printf("%d\n", temp->pos);
         temp = temp->liga;
     }
 }
 void destruir()
 {
-    cad *temp;
+    cad2 *temp;
     temp = primeiroNO;
-    cad *aux;
+    cad2 *aux;
 
     while (temp->liga != NULL)
     {
@@ -67,7 +65,7 @@ void buscaPosicao()
     printf("Digite a posicao que deseja buscar: \n");
     scanf("%d", &posicao);
 
-    cad *temp;
+    cad2 *temp;
     temp = primeiroNO;
     int achou = 0;
     while (temp != NULL)
