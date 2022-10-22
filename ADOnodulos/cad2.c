@@ -1,17 +1,19 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct me cad2;
 int cont = 0;
+typedef struct me cad2;
 struct me
 {
     int pos;
     char nome[1][30];
     cad2 *liga;
 };
+
 cad2 *ultimoNo;
+
 cad2 *primeiroNO;
+
 void alocar()
 {
     cont++;
@@ -25,8 +27,8 @@ void alocar()
     }
     else
     {
-        ultimoNo->liga = newcad2;
-        newcad2->liga = NULL;
+
+        newcad2->liga = ultimoNo;
         newcad2->pos = cont;
     }
     ultimoNo = newcad2;
@@ -43,6 +45,7 @@ void exibir()
         temp = temp->liga;
     }
 }
+
 void destruir()
 {
     cad2 *temp;
