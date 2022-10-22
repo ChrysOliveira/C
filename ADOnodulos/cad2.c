@@ -11,8 +11,7 @@ struct me
 };
 
 cad2 *ultimoNo;
-
-cad2 *primeiroNO;
+cad2 *inicio;
 
 void alocar()
 {
@@ -22,14 +21,15 @@ void alocar()
     {
         newcad2->liga = NULL;
         newcad2->pos = cont;
-        primeiroNO = newcad2;
         ultimoNo = newcad2;
+        inicio = newcad2;
     }
     else
     {
 
-        newcad2->liga = ultimoNo;
+        newcad2->liga = NULL;
         newcad2->pos = cont;
+        ultimoNo->liga = newcad2;
     }
     ultimoNo = newcad2;
 }
@@ -37,7 +37,7 @@ void alocar()
 void exibir()
 {
     cad2 *temp;
-    temp = primeiroNO;
+    temp = inicio;
 
     while (temp != NULL)
     {
@@ -49,7 +49,7 @@ void exibir()
 void destruir()
 {
     cad2 *temp;
-    temp = primeiroNO;
+    temp = inicio;
     cad2 *aux;
 
     while (temp->liga != NULL)
@@ -69,7 +69,7 @@ void buscaPosicao()
     scanf("%d", &posicao);
 
     cad2 *temp;
-    temp = primeiroNO;
+    temp = inicio;
     int achou = 0;
     while (temp != NULL)
     {
@@ -94,7 +94,7 @@ void buscaPosicao()
 void verificaVazio()
 {
 
-    if (primeiroNO == NULL)
+    if (inicio == NULL)
     {
         printf("A estrutura esta vazia\n");
     }
@@ -106,28 +106,31 @@ void verificaVazio()
 
 int main()
 {
-    for (int i = 0; i <= 4; i++)
-        alocar();
 
     int opcao;
     do
     {
         printf("Escolha uma opcao:\n");
-        printf("1-Exibir\n");
-        printf("2-Procurar posicao\n");
-        printf("3-Verificar se esta vazia\n");
+        printf("1-Alocar\n");
+        printf("2-Exibir\n");
+        printf("3-Procurar posicao\n");
+        printf("4-Verificar se esta vazia\n");
         printf("0-Sair\n");
         scanf("%d", &opcao);
 
         if (opcao == 1)
         {
-            exibir();
+            alocar();
         }
         else if (opcao == 2)
         {
-            buscaPosicao();
+            exibir();
         }
         else if (opcao == 3)
+        {
+            buscaPosicao();
+        }
+        else if (opcao == 4)
         {
             verificaVazio();
         }

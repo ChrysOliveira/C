@@ -13,6 +13,7 @@ struct me
 };
 cad *ultimoNo;
 cad *primeiroNO;
+
 void alocar()
 {
     cont++;
@@ -105,28 +106,30 @@ void verificaVazio()
 
 int main()
 {
-    for (int i = 0; i <= 4; i++)
-        alocar();
-
     int opcao;
     do
     {
         printf("Escolha uma opcao:\n");
-        printf("1-Exibir\n");
-        printf("2-Procurar posicao\n");
-        printf("3-Verificar se esta vazia\n");
+        printf("1-Alocar\n");
+        printf("2-Exibir\n");
+        printf("3-Procurar posicao\n");
+        printf("4-Verificar se esta vazia\n");
         printf("0-Sair\n");
         scanf("%d", &opcao);
 
         if (opcao == 1)
         {
-            exibir();
+            alocar();
         }
         else if (opcao == 2)
         {
-            buscaPosicao();
+            exibir();
         }
         else if (opcao == 3)
+        {
+            buscaPosicao();
+        }
+        else if (opcao == 4)
         {
             verificaVazio();
         }
